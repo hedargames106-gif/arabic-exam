@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تاقیکردنەوەی کۆرسی عەرەبی ئاستی یەکەم</title>
+<style>
+:root{--bg:#f2f5f4;--card:#fff;--ink:#14231f;--mute:#5d6f69;--line:#d6e0dc;--brand:#0f6b57;--brand-d:#0a4f40;--tint:#e3f2ed;--ok:#177a43;--okbg:#e4f5ea;--bad:#b3261e;--badbg:#fdeceb;--warn:#8a5a00;--warnbg:#fff4dc}
+@media(prefers-color-scheme:dark){:root{--bg:#10181a;--card:#182326;--ink:#e8f1ee;--mute:#9bb0aa;--line:#2b3b3e;--brand:#3fb596;--brand-d:#5fd0b2;--tint:#1d3a35;--ok:#5fd18c;--okbg:#17321f;--bad:#ff8a80;--badbg:#3a1d1b;--warn:#f0c36a;--warnbg:#38301a}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI","Noto Naskh Arabic","Noto Sans Arabic",Tahoma,"Geeza Pro","Droid Arabic Naskh",Arial,sans-serif;line-height:1.7;font-size:18px;padding:max(16px,env(safe-area-inset-top)) 14px max(24px,env(safe-area-inset-bottom))}
+main{max-width:720px;margin:0 auto}
+h1{font-size:1.45rem;margin:8px 0 18px;text-align:center;line-height:1.5}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.hidden{display:none!important}
+label.f{display:block;font-weight:700;margin:14px 0 6px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+input[type=text]:focus{outline:none;border-color:var(--brand)}
+.err{color:var(--bad);font-size:.9rem;margin-top:4px;min-height:1.2em}
+button{font:inherit;cursor:pointer;border-radius:10px;border:2px solid var(--brand);padding:11px 20px;min-height:48px;background:var(--card);color:var(--brand);font-weight:700}
+button.p{background:var(--brand);color:#fff}
+@media(prefers-color-scheme:dark){button.p{color:#0b1a17}}
+button:disabled{opacity:.4;cursor:not-allowed}
+button:focus-visible,input:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.info{color:var(--mute);margin:0 0 6px;font-size:.95rem}
+.top{display:flex;justify-content:space-between;align-items:center;font-weight:700;margin-bottom:8px;gap:8px}
+.top small{color:var(--mute);font-weight:400}
+.bar{height:12px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;width:0;background:var(--brand);transition:width .2s}
+.q{font-size:1.25rem;font-weight:700;margin:4px 0 16px;line-height:1.7}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--line);border-radius:12px;cursor:pointer;background:var(--card)}
+.opt:has(input:checked){border-color:var(--brand);background:var(--tint)}
+.opt input{width:22px;height:22px;accent-color:var(--brand);flex:none;margin:0}
+.opt b{flex:none;width:1.6em;color:var(--mute)}
+.opt span{flex:1}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.nav button{flex:1}
+.dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;justify-content:center}
+.dots button{min-height:34px;min-width:34px;padding:0 6px;font-size:.8rem;border-width:1px;border-color:var(--line);color:var(--mute)}
+.dots button.a{background:var(--tint);color:var(--brand);border-color:var(--brand)}
+.dots button.c{outline:2px solid var(--brand)}
+.warn{background:var(--warnbg);color:var(--warn);border-radius:12px;padding:14px;margin-top:16px}
+.warn .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.warn button{flex:1;min-width:120px}
+.res{text-align:center}
+.res .sc{font-size:3rem;font-weight:800;color:var(--brand);line-height:1.2;direction:ltr}
+.names{margin:8px 0;color:var(--mute)}
+.names div{color:var(--ink)}
+.rv{margin-top:16px;border:1px solid var(--line);border-right:6px solid var(--line);border-radius:12px;padding:14px;background:var(--card)}
+.rv.ok{border-right-color:var(--ok)}
+.rv.no{border-right-color:var(--bad)}
+.rv h3{margin:0 0 8px;font-size:1.05rem}
+.tag{font-size:.85rem;padding:2px 10px;border-radius:99px;font-weight:700;margin-inline-start:8px}
+.ok .tag{background:var(--okbg);color:var(--ok)}
+.no .tag{background:var(--badbg);color:var(--bad)}
+.ans{padding:8px 12px;border-radius:8px;margin-top:6px;font-size:1rem}
+.ans.s{background:var(--badbg);color:var(--bad)}
+.ans.s.right{background:var(--okbg);color:var(--ok)}
+.ans.k{background:var(--okbg);color:var(--ok)}
+.ans.n{background:var(--warnbg);color:var(--warn)}
+@media(max-width:480px){body{font-size:17px}.card{padding:16px}h1{font-size:1.25rem}.q{font-size:1.15rem}}
+</style>
+</head>
+<body>
+<main>
+<h1>تاقیکردنەوەی کۆرسی عەرەبی ئاستی یەکەم</h1>
+
+<section id="oath" class="card">
+  <p class="info">پێش دەستپێکردن، دەبێت سوێند بخۆیت.</p>
+  <label class="opt" style="margin-top:14px">
+    <input type="checkbox" id="swear">
+    <span style="font-weight:700;font-size:1.15rem">سويند دةخؤم كة هيچ غةشي ناكةم</span>
+  </label>
+  <button class="p" id="oathgo" style="width:100%;margin-top:16px" disabled>بەردەوامبوون</button>
+</section>
+
+<section id="start" class="card hidden">
+  <p class="info">٥٠ پرسیار — هەر پرسیارێک ١ نمرە — کۆی نمرە ٥٠</p>
+  <label class="f" for="n1">ناوی قوتابی</label>
+  <input type="text" id="n1" autocomplete="off">
+  <label class="f" for="n2">ناوی باوک</label>
+  <input type="text" id="n2" autocomplete="off">
+  <label class="f" for="n3">ناوی باپیر</label>
+  <input type="text" id="n3" autocomplete="off">
+  <div class="err" id="serr"></div>
+  <button class="p" id="go" style="width:100%;margin-top:8px">دەستپێکردن</button>
+</section>
+
+<section id="exam" class="card hidden">
+  <div class="top"><span id="cnt"></span><small id="ans-cnt"></small></div>
+  <div class="bar"><i id="fill"></i></div>
+  <div class="q" id="qt"></div>
+  <div class="opts" id="opts"></div>
+  <div class="nav">
+    <button id="prev">پێشوو</button>
+    <button class="p" id="next">دواتر</button>
+  </div>
+  <div class="warn hidden" id="warn">
+    <div id="wtxt"></div>
+    <div class="row"><button id="wback">گەڕانەوە بۆ پرسیارەکان</button><button class="p" id="wgo">بەڵێ، کۆتایی بێنە</button></div>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<section id="result" class="hidden">
+  <div class="card res">
+    <div class="names">
+      <div id="r1"></div><div id="r2"></div><div id="r3"></div>
+    </div>
+    <div class="sc" id="rs"></div>
+    <div id="rp" style="font-weight:700;font-size:1.2rem"></div>
+    <div class="info" id="rd"></div>
+    <button class="p" id="again" style="margin-top:14px">دووبارە دەستپێکردنەوە</button>
+  </div>
+  <div id="review"></div>
+</section>
+</main>
+
+<script>
+(function(){
+"use strict";
+/* Questions shown to the student: q = question, c = 4 choices (A,B,C,D). */
+var Q=[
+{q:"حەرەکەتەکان چییە؟",c:["پیتەکانی عەرەبی","نیشانە بچووکەکان کە شێوازی خوێندنەوەی پیت دیاری دەکەن","وشەی تەواو","نیشانەی کۆتایی وشە"]},
+{q:"کامەیان فَتحەیە؟",c:["ـِ","ـُ","ـَ","ـْ"]},
+{q:"فَتحە لە کوێی پیت دادەنرێت؟",c:["لە ژێر پیت","لەسەر پیت","لە کۆتایی وشە","لە ناو پیت"]},
+{q:"«بِ» بە کام حەرەکەتە؟",c:["فَتحە","ضەمە","کەسرە","سکون"]},
+{q:"«مُ» چۆن دەخوێندرێتەوە؟",c:["مە","می","مو","ما"]},
+{q:"کام ڕیزەکە بە ڕاستی هەمان پیت بە سێ حەرەکەتە؟",c:["بَ – بِ – بُ","بَ – بْ – بّ","با – بو – بی","بْ – بّ – بَ"]},
+{q:"«كَتَبَ» چۆن دابەش دەکرێت؟",c:["كَ + بَ + تَ","كَ + تَ + بَ","كُ + تِ + بَ","كِ + تَ + بُ"]},
+{q:"«جَلَسَ» واتای چییە؟",c:["نووسی","خوێندی","دانیشت","چوو"]},
+{q:"«دَرَسَ» واتای چییە؟",c:["خوێندی","دانیشت","نووسی","چووە دەرەوە"]},
+{q:"«ذَهَبَ» واتای چییە؟",c:["دانیشت","چوو","نووسی","خوێندی"]},
+{q:"سکون بە کام نیشانەیە؟",c:["ـَ","ـِ","ـُ","ـْ"]},
+{q:"کاتێک پیتێک سکونی هەبێت، چی نییە؟",c:["پیت","دەنگ","حەرەکە","وشە"]},
+{q:"لە وشەی «مَكْتَب» کام پیت سکونی هەیە؟",c:["م","ك","ت","ب"]},
+{q:"شَدَّة نیشانەی چییە؟",c:["پیتێکی یەکجارە و بێ حەرەکەت","پیتێکی دووجارە","دەنگی درێژ","تەنوین"]},
+{q:"لە شَدَّةدا پیتی یەکەم چۆنە؟",c:["حەرەکەدارە","درێژە","ساکنە","تەنوینە"]},
+{q:"کامەیان جۆرەکانی تەنوینە؟",c:["ـٌ ، ـٍ ، ـً","ـَ ، ـِ ، ـُ","ـْ ، ـّ ، ـَ","ا ، و ، ي"]},
+{q:"لە «كِتابٌ» کام جۆری تەنوین بەکارهاتووە؟",c:["فَتحەتان","کەسرەتان","ضەمەتان","سکون"]},
+{q:"کام سێ پیت زۆرجار بۆ درێژکردنەوەی دەنگ بەکاردێن؟",c:["ب، ت، م","ا، و، ي","س، ش، ص","ك، ل، ن"]},
+{q:"کامەیان دەنگی درێژە؟",c:["بَ","بِ","بُ","بَا"]},
+{q:"«بَ» و «بَا» لە چی جیاوازن؟",c:["یەکەمیان دەنگی درێژە و دووەمیان کورتە","هەردووکیان دەنگی کورتن","«بَ» کورتە و «بَا» درێژە","هەردووکیان دەنگی درێژن"]},
+{q:"کامەیان فَتحَة ـَ ـە؟",c:["بِ","بَ","بُ","بْ"]},
+{q:"کامەیان كَسرَة ـِ ـە؟",c:["تَ","تُ","تِ","تْ"]},
+{q:"کامەیان ضَمَّة ـُ ـە؟",c:["مُ","مَ","مِ","مْ"]},
+{q:"لە وشەی كَتَبَ چەند فَتحَة هەیە؟",c:["١","٢","٣","نیەتی"]},
+{q:"کام وشەیەک بە كَسرَة دەست پێدەکات؟",c:["كُتُب","كِتاب","كَتَبَ","مَدْرَسَة"]},
+{q:"لە وشەی مُدير حەرەکەی پیتی یەکەم چییە؟",c:["فَتحَة","كَسرَة","ضَمَّة","سُكون"]},
+{q:"نیشانەی سُكون کامەیە؟",c:["ـَ","ـِ","ـُ","ـْ"]},
+{q:"لە وشەی مَكْتَب کام پیتە حەرەکەی لەسەر نیە؟",c:["م","ك","ت","ب"]},
+{q:"نیشانەی شَدَّة کامەیە؟",c:["ـْ","ـّ","ـٌ","ـً"]},
+{q:"کامەیان بە دروستی لەگەڵ حەرەکەکەی هاوتایە؟",c:["بَ = ضَمَّة","بِ = فَتحَة","بُ = ضَمَّة","بْ = كَسرَة"]},
+{q:"«أنا» بە مانای چییە؟",c:["تۆ","من","ئەو","ئێمە"]},
+{q:"کام جێناو بۆ «تۆ ـ نێر» بەکاردێت؟",c:["أنتِ","هو","أنتَ","هي"]},
+{q:"کام جێناو بۆ «تۆ ـ مێ» بەکاردێت؟",c:["أنتَ","أنتِ","أنتم","هي"]},
+{q:"«هو» بۆ کێ بەکاردێت؟",c:["یەک نێر","یەک مێ","دوو کەس","کۆی مێ"]},
+{q:"«هي» بە مانای چییە؟",c:["ئەو ـ نێر","ئەوان ـ نێر","ئەو ـ مێ","ئێوە ـ مێ"]},
+{q:"بۆ «ئێمە» کام جێناو دروستە؟",c:["نحن","هم","أنتم","أنا"]},
+{q:"«أنتما» بۆ چەند کەس بەکاردێت؟",c:["یەک کەس","دوو کەس","سێ کەس","کۆمەڵێک کەس"]},
+{q:"کامەیان جێناوی «ئەوان ـ کۆی نێر»ە؟",c:["هنَّ","أنتم","هم","هما"]},
+{q:"کام جێناو بۆ «ئەوان ـ کۆی مێ» بەکاردێت؟",c:["هم","هنَّ","أنتنَّ","هي"]},
+{q:"«أنتم» بە مانای چییە؟",c:["ئێوە ـ کۆی نێر","ئێوە ـ کۆی مێ","ئەوان ـ کۆی نێر","ئێوە دووانە"]},
+{q:"«أنتنَّ» بۆ کێ بەکاردێت؟",c:["دوو مێ","کۆی نێر","کۆی مێ","یەک مێ"]},
+{q:"کام ڕستەیە دروستە بۆ یەک کوڕ؟",c:["هي طالبٌ","هو طالبٌ","أنتِ طالبٌ","هنَّ طالبٌ"]},
+{q:"کام ڕستەیە دروستە بۆ یەک کچ؟",c:["هو طالبةٌ","هي طالبةٌ","هم طالبةٌ","أنتَ طالبةٌ"]},
+{q:"«هما طالبانِ» واتە چی؟",c:["ئەو قوتابییە","ئێوە قوتابین","ئەوان دوو قوتابین","ئەوان قوتابین"]},
+{q:"کام جێناو بۆ «ئێوە دوو کەس» بەکاردێت؟",c:["هما","أنتما","أنتم","نحن"]},
+{q:"ئەگەر قسە لەگەڵ کۆمەڵێک کچ بکەیت، کام جێناو بەکاردێت؟",c:["أنتم","هم","أنتنَّ","هنَّ"]},
+{q:"ئەگەر قسە لەسەر کۆمەڵێک کوڕ بکەیت، کام جێناو دروستە؟",c:["أنتم","هم","هنَّ","هما"]},
+{q:"کامەیان بۆ «خۆمم» بەکاردێت؟",c:["نحن","أنا","أنتَ","هو"]},
+{q:"کام جێناوانە بۆ نێر بەکاردێن؟",c:["أنتَ، هو، أنتم، هم","أنتِ، هي، أنتنَّ، هنَّ","أنا، نحن، هما","هي، هم، هنَّ"]},
+{q:"کام هەڵبژاردەیە ڕاستە؟",c:["أنتَ = تۆ ـ مێ","هي = ئەو ـ نێر","هم = ئەوان ـ کۆی نێر","هنَّ = ئەوان ـ کۆی نێر"]}
+];
+/* Answer key, kept separate from the questions (index 0-3 = A-D). Q23 = A, Q28 = B. */
+var KEY="BCBCCABCABDCBBCACBDCBCACBCDBBCBCBACABCBACBBCBCBBAC".split("");
+var L="ABCD",TOTAL=Q.length,cur=0,ans=new Array(TOTAL).fill(-1),info={};
+var $=function(i){return document.getElementById(i)};
+
+/* Self-test (runs in the console only, nothing shown to the student) */
+(function(){
+ var ok=Q.length===50&&KEY.length===50&&Q.every(function(x){return x.c.length===4})&&KEY.every(function(k){return L.indexOf(k)>-1});
+ if(!ok)console.error("Exam data error");
+})();
+
+function show(id){["oath","start","exam","result"].forEach(function(s){$(s).classList.toggle("hidden",s!==id)});window.scrollTo(0,0)}
+
+$("swear").onchange=function(){$("oathgo").disabled=!$("swear").checked};
+$("oathgo").onclick=function(){if($("swear").checked)show("start")};
+
+$("go").onclick=function(){
+ var a=$("n1").value.trim(),b=$("n2").value.trim(),c=$("n3").value.trim();
+ if(!a||!b||!c){$("serr").textContent="تکایە هەر سێ خانەکە پڕ بکەرەوە.";return}
+ $("serr").textContent="";info={a:a,b:b,c:c};cur=0;ans=new Array(TOTAL).fill(-1);
+ buildDots();render();show("exam");
+};
+
+function answered(){return ans.filter(function(x){return x>-1}).length}
+
+function buildDots(){
+ var d=$("dots");d.innerHTML="";
+ Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.setAttribute("aria-label","پرسیاری "+(i+1));b.onclick=function(){cur=i;hideWarn();render()};d.appendChild(b)});
+}
+
+function render(){
+ var x=Q[cur];
+ $("cnt").textContent="پرسیاری "+(cur+1)+" لە "+TOTAL;
+ $("ans-cnt").textContent="وەڵامدراوە: "+answered()+" / "+TOTAL;
+ $("fill").style.width=((cur+1)/TOTAL*100)+"%";
+ $("qt").textContent=x.q;
+ var o=$("opts");o.innerHTML="";
+ x.c.forEach(function(t,i){
+  var l=document.createElement("label");l.className="opt";
+  var r=document.createElement("input");r.type="radio";r.name="q";r.value=i;r.checked=ans[cur]===i;
+  r.onchange=function(){ans[cur]=i;refresh()};
+  var k=document.createElement("b");k.textContent=L[i];k.dir="ltr";
+  var s=document.createElement("span");s.textContent=t;
+  l.appendChild(r);l.appendChild(k);l.appendChild(s);o.appendChild(l);
+ });
+ $("prev").disabled=cur===0;
+ var last=cur===TOTAL-1;
+ $("next").textContent=last?"کۆتایی هێنان":"دواتر";
+ refresh();
+}
+function refresh(){
+ $("ans-cnt").textContent="وەڵامدراوە: "+answered()+" / "+TOTAL;
+ var ds=$("dots").children;
+ for(var i=0;i<ds.length;i++){ds[i].className=(ans[i]>-1?"a ":"")+(i===cur?"c":"")}
+}
+function hideWarn(){$("warn").classList.add("hidden")}
+
+$("prev").onclick=function(){if(cur>0){cur--;hideWarn();render()}};
+$("next").onclick=function(){
+ if(cur<TOTAL-1){cur++;hideWarn();render();return}
+ var un=TOTAL-answered();
+ if(un>0){
+  var miss=[];ans.forEach(function(a,i){if(a<0)miss.push(i+1)});
+  $("wtxt").textContent="ئاگاداری: "+un+" پرسیار بێ وەڵامە ("+miss.join("، ")+"). دڵنیایت دەتەوێت کۆتایی بهێنیت؟";
+  $("warn").classList.remove("hidden");
+ }else finish();
+};
+$("wback").onclick=hideWarn;
+$("wgo").onclick=finish;
+
+function finish(){
+ var score=0;
+ ans.forEach(function(a,i){if(a>-1&&L[a]===KEY[i])score++});
+ var pct=score/TOTAL*100;
+ $("r1").textContent="ناوی قوتابی: "+info.a;
+ $("r2").textContent="ناوی باوک: "+info.b;
+ $("r3").textContent="ناوی باپیر: "+info.c;
+ $("rs").textContent=score+" / "+TOTAL;
+ $("rp").textContent="ڕێژە: "+(Math.round(pct*10)/10)+"%";
+ $("rd").textContent="وەڵامی ڕاست: "+score+" — هەڵە: "+(answered()-score)+" — بێ وەڵام: "+(TOTAL-answered());
+ var rv=$("review");rv.innerHTML="";
+ Q.forEach(function(x,i){
+  var a=ans[i],ok=a>-1&&L[a]===KEY[i],ci=L.indexOf(KEY[i]);
+  var d=document.createElement("div");d.className="rv "+(ok?"ok":"no");
+  var h=document.createElement("h3");h.textContent=(i+1)+". "+x.q;
+  var t=document.createElement("span");t.className="tag";t.textContent=ok?"ڕاست":(a<0?"بێ وەڵام":"هەڵە");h.appendChild(t);
+  d.appendChild(h);
+  var s=document.createElement("div");
+  if(a<0){s.className="ans n";s.textContent="وەڵامی تۆ: وەڵام نەدراوەتەوە"}
+  else{s.className="ans s"+(ok?" right":"");s.textContent="وەڵامی تۆ: "+L[a]+") "+x.c[a]}
+  d.appendChild(s);
+  if(!ok){var k=document.createElement("div");k.className="ans k";k.textContent="وەڵامی ڕاست: "+KEY[i]+") "+x.c[ci];d.appendChild(k)}
+  rv.appendChild(d);
+ });
+ show("result");
+}
+
+$("again").onclick=function(){
+ ans=new Array(TOTAL).fill(-1);cur=0;info={};
+ ["n1","n2","n3"].forEach(function(i){$(i).value=""});
+ $("review").innerHTML="";hideWarn();$("swear").checked=false;$("oathgo").disabled=true;show("oath");
+};
+})();
+</script>
+</body>
+</html>
